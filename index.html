@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Portafolio personal de Jael Vergara Pineda. Proyectos de Java, Kotlin, bases de datos y desarrollo web.">
+    <meta name="keywords" content="Jael Vergara Pineda, portafolio, HTML, CSS, Java, Kotlin, MySQL">
+    <meta name="author" content="Jael Vergara Pineda">
+
+    <title>Jael Vergara Pineda | Portafolio personal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --azul: #285bd6;
+            --azul-oscuro: #142747;
+            --texto: #18253b;
+            --gris: #58677b;
+            --fondo: #f1f5fa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--texto);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contenedor {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #dce4ee;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            min-height: 75px;
+        }
+
+        .logo {
+            font-family: "Manrope", sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--azul);
+        }
+
+        .enlaces {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            font-weight: 700;
+        }
+
+        .enlaces a:hover,
+        .redes a:hover {
+            color: var(--azul);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .etiqueta {
+            color: var(--azul);
+            font-family: "Space Mono", monospace;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        h1, h2, h3 {
+            font-family: "Manrope", sans-serif;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(42px, 6vw, 76px);
+            letter-spacing: -3px;
+            margin: 15px 0 25px;
+        }
+
+        h1 span {
+            color: var(--azul);
+        }
+
+        h2 {
+            font-size: clamp(30px, 4vw, 46px);
+            margin: 10px 0 25px;
+        }
+
+        p {
+            color: var(--gris);
+        }
+
+        .inicio {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+            min-height: 620px;
+        }
+
+        .inicio p {
+            font-size: 19px;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 13px 24px;
+            border: 0;
+            border-radius: 6px;
+            color: white;
+            background: var(--azul);
+            font: 700 16px "DM Sans", sans-serif;
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            background: #173c9c;
+        }
+
+        .cuadro-inicio {
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #3269e4, var(--azul-oscuro));
+            box-shadow: 16px 16px 0 #dce7ff;
+            color: white;
+            font: 800 clamp(100px, 15vw, 190px) "Manrope", sans-serif;
+        }
+
+        .oscuro {
+            background: var(--azul-oscuro);
+            color: white;
+        }
+
+        .oscuro p {
+            color: #d5e0ef;
+        }
+
+        .oscuro .etiqueta {
+            color: #a8c1ff;
+        }
+
+        .dos-columnas {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 70px;
+        }
+
+        .habilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .habilidades span {
+            padding: 7px 12px;
+            border: 1px solid #91a9cb;
+            border-radius: 5px;
+        }
+
+        .proyectos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tarjeta {
+            border: 1px solid #dce4ee;
+            border-radius: 9px;
+            overflow: hidden;
+        }
+
+        .imagen-proyecto {
+            height: 190px;
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            padding: 20px;
+            color: white;
+            font: 800 35px "Manrope", sans-serif;
+            text-align: right;
+        }
+
+        .java {
+            background: linear-gradient(135deg, #85a6ff, #2455c7);
+        }
+
+        .mysql {
+            background: linear-gradient(135deg, #ffc27e, #d76b37);
+        }
+
+        .kotlin {
+            background: linear-gradient(135deg, #b9a0ff, #6747bd);
+        }
+
+        .contenido-tarjeta {
+            padding: 22px;
+        }
+
+        .contenido-tarjeta h3 {
+            margin-bottom: 8px;
+        }
+
+        .suave {
+            background: var(--fondo);
+        }
+
+        .multimedia {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 30px;
+        }
+
+        video, audio {
+            width: 100%;
+        }
+
+        video {
+            border-radius: 8px;
+            background: var(--azul-oscuro);
+        }
+
+        .caja-audio {
+            padding: 30px;
+            border-radius: 8px;
+            background: var(--fondo);
+        }
+
+        form {
+            display: grid;
+            gap: 9px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #aebfd6;
+            border-radius: 5px;
+            font: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .redes {
+            margin-top: 25px;
+        }
+
+        .redes a {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 25px 0;
+            background: var(--azul-oscuro);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            color: #d5e0ef;
+        }
+
+        @media (max-width: 750px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .inicio, .dos-columnas, .multimedia {
+                grid-template-columns: 1fr;
+            }
+
+            .inicio {
+                padding: 65px 0;
+                min-height: auto;
+            }
+
+            .proyectos {
+                grid-template-columns: 1fr;
+            }
+
+            .cuadro-inicio {
+                min-height: 270px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="contenedor" aria-label="Navegación principal">
+            <a class="logo" href="#inicio">JV.</a>
+
+            <div class="enlaces">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#trayectoria">Trayectoria</a>
+                <a href="#multimedia">Multimedia</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- INICIO -->
+        <section id="inicio" class="inicio contenedor">
+            <div>
+                <div class="etiqueta">PORTAFOLIO PERSONAL / 2026</div>
+
+                <h1>Hola, soy <span>Jael Vergara Pineda.</span></h1>
+
+                <p>
+                    Estudiante de Ingeniería en Sistemas en la Universidad
+                    Tecnológica de León. En este sitio comparto proyectos y
+                    evidencias de lo que he aprendido durante mi formación.
+                </p>
+
+                <a class="boton" href="#proyectos">Ver mis proyectos ↗</a>
+            </div>
+
+            <div class="cuadro-inicio" role="img" aria-label="Iniciales JV">
+                JV
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ -->
+        <section id="sobre-mi" class="oscuro">
+            <div class="contenedor dos-columnas">
+                <div>
+                    <div class="etiqueta">01 / PERFIL PERSONAL</div>
+                    <h2>Sobre mí</h2>
+                </div>
+
+                <div>
+                    <p>
+                        Me interesa crear soluciones útiles y fáciles de usar.
+                        Durante mis estudios he trabajado con programación
+                        orientada a objetos, bases de datos, desarrollo móvil
+                        y diseño de interfaces.
+                    </p>
+
+                    <div class="habilidades">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Java</span>
+                        <span>Kotlin</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYECTOS -->
+        <section id="proyectos" class="contenedor">
+            <div class="etiqueta">02 / EVIDENCIAS ACADÉMICAS</div>
+            <h2>Mis proyectos</h2>
+
+            <div class="proyectos">
+                <article class="tarjeta">
+                    <div class="imagen-proyecto java" role="img"
+                         aria-label="Tarjeta ilustrativa del proyecto en Java">
+                        JAVA<br>+ MVC
+                    </div>
+
+                    <div class="contenido-tarjeta">
+                        <h3>Sistema de gimnasio</h3>
+                        <p>
+                            Proyecto académico organizado en modelos,
+                            controladores y clases de acceso a datos.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="imagen-proyecto mysql" role="img"
+                         aria-label="Tarjeta ilustrativa de bases de datos">
+                        DATOS<br>+ SQL
+                    </div>
+
+                    <div class="contenido-tarjeta">
+                        <h3>Tienda de tenis</h3>
+                        <p>
+                            Base de datos con tablas relacionadas para
+                            productos, clientes, empleados y ventas.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="imagen-proyecto kotlin" role="img"
+                         aria-label="Tarjeta ilustrativa de Kotlin">
+                        MÓVIL<br>+ UI
+                    </div>
+
+                    <div class="contenido-tarjeta">
+                        <h3>Ejercicios en Kotlin</h3>
+                        <p>
+                            Programas de práctica para calcular promedios
+                            y convertir grados Celsius a Fahrenheit.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- TRAYECTORIA -->
+        <section id="trayectoria" class="suave">
+            <div class="contenedor dos-columnas">
+                <div>
+                    <div class="etiqueta">03 / FORMACIÓN</div>
+                    <h2>Mi trayectoria</h2>
+                </div>
+
+                <div>
+                    <h3>Formación académica</h3>
+                    <p>
+                        Estudio Ingeniería en Sistemas en la Universidad
+                        Tecnológica de León. He realizado actividades de
+                        programación, bases de datos, redes y desarrollo móvil.
+                    </p>
+
+                    <h3>Experiencia práctica</h3>
+                    <p>
+                        He desarrollado proyectos académicos en Java,
+                        Kotlin y MySQL. También he practicado la creación
+                        de interfaces y sitios web.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO Y AUDIO -->
+        <section id="multimedia" class="contenedor">
+            <div class="etiqueta">04 / CONTENIDO MULTIMEDIA</div>
+            <h2>Multimedia</h2>
+
+            <div class="multimedia">
+                <div>
+                    <h3>Video de presentación</h3>
+
+                    <video controls preload="metadata">
+                        <source src="imagenes/video.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+
+                    <p>Una presentación breve de mi portafolio.</p>
+                </div>
+
+                <div class="caja-audio">
+                    <h3>Audio</h3>
+                    <p>Audio para complementar mi portafolio.</p>
+
+                    <audio controls preload="metadata">
+                        <source src="imagenes/audio.mp3" type="audio/mpeg">
+                        Tu navegador no puede reproducir este audio.
+                    </audio>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="suave">
+            <div class="contenedor dos-columnas">
+                <div>
+                    <div class="etiqueta">05 / CONTACTO</div>
+                    <h2>Contáctame</h2>
+
+                    <p>
+                        Si quieres comunicarte conmigo, completa
+                        el siguiente formulario.
+                    </p>
+
+                    <div class="redes">
+                        <!-- Cambia este enlace por tu perfil real de GitHub. -->
+                        <a href="https://github.com/" target="_blank"
+                           rel="noopener noreferrer">Mi GitHub ↗</a>
+                    </div>
+                </div>
+
+                <form id="formulario">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" required
+                           placeholder="Escribe tu nombre">
+
+                    <label for="correo">Correo electrónico</label>
+                    <input id="correo" type="email" required
+                           placeholder="ejemplo@correo.com">
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" rows="5" required
+                              placeholder="Escribe tu mensaje"></textarea>
+
+                    <button class="boton" type="submit">
+                        Preparar correo ↗
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Jael Vergara Pineda · Portafolio personal</p>
+    </footer>
+
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            const nombre = document.getElementById("nombre").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+            const mensaje = document.getElementById("mensaje").value.trim();
+
+            const asunto = encodeURIComponent(
+                "Mensaje del portafolio de " + nombre
+            );
+
+            const contenido = encodeURIComponent(
+                mensaje + "\n\nNombre: " + nombre + "\nCorreo: " + correo
+            );
+
+            const miCorreo = "jaelvergaraa@gmail.com";
+
+            window.location.href =
+                "mailto:" + miCorreo +
+                "?subject=" + asunto +
+                "&body=" + contenido;
+        });
+    </script>
+</body>
+</html>
