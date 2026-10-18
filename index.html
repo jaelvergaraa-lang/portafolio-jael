@@ -2,18 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="Portafolio personal de Jael Vergara Pineda. Proyectos de Java, Kotlin, bases de datos y desarrollo web.">
-    <meta name="keywords" content="Jael Vergara Pineda, portafolio, HTML, CSS, Java, Kotlin, MySQL">
+    <!-- SEO general del portafolio -->
+    <meta name="description"
+          content="Portafolio personal de Jael Vergara Pineda, estudiante de la Universidad Tecnológica de León. Proyectos de Java, Kotlin, MySQL y desarrollo web.">
+    <meta name="keywords"
+          content="Jael Vergara Pineda, portafolio personal, programación, Java, Kotlin, MySQL, desarrollo web, UTL">
     <meta name="author" content="Jael Vergara Pineda">
 
-    <title>Jael Vergara Pineda | Portafolio personal</title>
+    <title>Jael Vergara Pineda | Portafolio de programación</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS oficial de Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
 
+    <!-- Personalización visual -->
     <style>
         :root {
             --azul: #285bd6;
@@ -23,550 +30,722 @@
             --fondo: #f1f5fa;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
             color: var(--texto);
-            font-family: "DM Sans", sans-serif;
             line-height: 1.7;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .contenedor {
-            width: min(1100px, 90%);
-            margin: auto;
-        }
-
-        header {
-            background: white;
-            border-bottom: 1px solid #dce4ee;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            min-height: 75px;
-        }
-
-        .logo {
-            font-family: "Manrope", sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--azul);
-        }
-
-        .enlaces {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 22px;
-            font-weight: 700;
-        }
-
-        .enlaces a:hover,
-        .redes a:hover {
-            color: var(--azul);
-        }
-
         section {
-            padding: 80px 0;
-        }
-
-        .etiqueta {
-            color: var(--azul);
-            font-family: "Space Mono", monospace;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            scroll-margin-top: 90px;
         }
 
         h1, h2, h3 {
-            font-family: "Manrope", sans-serif;
+            font-weight: 700;
             line-height: 1.2;
-        }
-
-        h1 {
-            font-size: clamp(42px, 6vw, 76px);
-            letter-spacing: -3px;
-            margin: 15px 0 25px;
-        }
-
-        h1 span {
-            color: var(--azul);
-        }
-
-        h2 {
-            font-size: clamp(30px, 4vw, 46px);
-            margin: 10px 0 25px;
         }
 
         p {
             color: var(--gris);
         }
 
-        .inicio {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            gap: 60px;
-            min-height: 620px;
+        .navbar-brand {
+            color: var(--azul);
+            font-size: 1.8rem;
+            font-weight: 800;
         }
 
-        .inicio p {
-            font-size: 19px;
+        .nav-link {
+            color: var(--texto);
+            font-weight: 600;
         }
 
-        .boton {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 13px 24px;
-            border: 0;
-            border-radius: 6px;
-            color: white;
-            background: var(--azul);
-            font: 700 16px "DM Sans", sans-serif;
-            cursor: pointer;
+        .nav-link:hover,
+        .navbar-brand:hover {
+            color: var(--azul);
         }
 
-        .boton:hover {
-            background: #173c9c;
+        .etiqueta {
+            color: var(--azul);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .titulo-inicio {
+            font-size: clamp(2.5rem, 5vw, 4.6rem);
+            letter-spacing: -2px;
+        }
+
+        .texto-azul {
+            color: var(--azul);
         }
 
         .cuadro-inicio {
-            min-height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #3269e4, var(--azul-oscuro));
-            box-shadow: 16px 16px 0 #dce7ff;
+            min-height: 280px;
+            background: linear-gradient(135deg, #3269e4, #142747);
             color: white;
-            font: 800 clamp(100px, 15vw, 190px) "Manrope", sans-serif;
+            font-size: clamp(6rem, 14vw, 11rem);
+            font-weight: 800;
         }
 
-        .oscuro {
+        .seccion-oscura,
+        footer {
             background: var(--azul-oscuro);
             color: white;
         }
 
-        .oscuro p {
+        .seccion-oscura p,
+        footer p {
             color: #d5e0ef;
         }
 
-        .oscuro .etiqueta {
+        .seccion-oscura .etiqueta {
             color: #a8c1ff;
         }
 
-        .dos-columnas {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 70px;
+        .fondo-suave {
+            background: var(--fondo);
         }
 
-        .habilidades {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 25px;
-        }
-
-        .habilidades span {
-            padding: 7px 12px;
-            border: 1px solid #91a9cb;
-            border-radius: 5px;
-        }
-
-        .proyectos {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .tarjeta {
-            border: 1px solid #dce4ee;
-            border-radius: 9px;
-            overflow: hidden;
+        .btn-primary {
+            --bs-btn-bg: #285bd6;
+            --bs-btn-border-color: #285bd6;
+            --bs-btn-hover-bg: #1c45a8;
+            --bs-btn-hover-border-color: #1c45a8;
+            --bs-btn-active-bg: #173c9c;
+            --bs-btn-active-border-color: #173c9c;
         }
 
         .imagen-proyecto {
-            height: 190px;
-            display: flex;
-            align-items: end;
-            justify-content: end;
-            padding: 20px;
+            min-height: 180px;
             color: white;
-            font: 800 35px "Manrope", sans-serif;
-            text-align: right;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
         }
 
-        .java {
-            background: linear-gradient(135deg, #85a6ff, #2455c7);
+        .proyecto-java {
+            background: linear-gradient(135deg, #547cde, #163b94);
         }
 
-        .mysql {
-            background: linear-gradient(135deg, #ffc27e, #d76b37);
+        .proyecto-datos {
+            background: linear-gradient(135deg, #a95227, #783610);
         }
 
-        .kotlin {
-            background: linear-gradient(135deg, #b9a0ff, #6747bd);
+        .proyecto-kotlin {
+            background: linear-gradient(135deg, #8060d4, #4e328f);
         }
 
-        .contenido-tarjeta {
-            padding: 22px;
-        }
-
-        .contenido-tarjeta h3 {
-            margin-bottom: 8px;
-        }
-
-        .suave {
-            background: var(--fondo);
-        }
-
-        .multimedia {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 30px;
-        }
-
-        video, audio {
-            width: 100%;
+        .card {
+            border-color: #dce4ee;
         }
 
         video {
-            border-radius: 8px;
+            display: block;
+            max-height: 420px;
             background: var(--azul-oscuro);
         }
 
-        .caja-audio {
-            padding: 30px;
-            border-radius: 8px;
-            background: var(--fondo);
+        audio {
+            display: block;
+            max-width: 100%;
         }
 
-        form {
-            display: grid;
-            gap: 9px;
+        .form-control:focus {
+            border-color: var(--azul);
+            box-shadow: 0 0 0 0.2rem rgba(40, 91, 214, 0.15);
         }
 
-        label {
-            margin-top: 10px;
-            font-weight: 700;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #aebfd6;
-            border-radius: 5px;
-            font: inherit;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        .redes {
-            margin-top: 25px;
-        }
-
-        .redes a {
-            font-weight: 700;
-            text-decoration: underline;
-        }
-
-        footer {
-            padding: 25px 0;
-            background: var(--azul-oscuro);
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-            color: #d5e0ef;
-        }
-
-        @media (max-width: 750px) {
-            nav {
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 15px 0;
-            }
-
-            .inicio, .dos-columnas, .multimedia {
-                grid-template-columns: 1fr;
-            }
-
-            .inicio {
-                padding: 65px 0;
-                min-height: auto;
-            }
-
-            .proyectos {
-                grid-template-columns: 1fr;
-            }
-
+        @media (min-width: 992px) {
             .cuadro-inicio {
-                min-height: 270px;
+                min-height: 380px;
             }
+        }
 
-            section {
-                padding: 60px 0;
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
             }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav class="contenedor" aria-label="Navegación principal">
-            <a class="logo" href="#inicio">JV.</a>
+    <!-- Navbar: componente de Bootstrap con menú desplegable en celular -->
+    <header class="sticky-top bg-white border-bottom">
+        <nav class="navbar navbar-expand-lg py-2"
+             aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="#inicio">JV.</a>
 
-            <div class="enlaces">
-                <a href="#sobre-mi">Sobre mí</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#trayectoria">Trayectoria</a>
-                <a href="#multimedia">Multimedia</a>
-                <a href="#contacto">Contacto</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir o cerrar menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto gap-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#proyectos">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#trayectoria">Trayectoria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#multimedia">Multimedia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
         <!-- INICIO -->
-        <section id="inicio" class="inicio contenedor">
-            <div>
-                <div class="etiqueta">PORTAFOLIO PERSONAL / 2026</div>
+        <!-- SEO: portafolio personal, Jael Vergara Pineda, programación -->
+        <section id="inicio" class="py-5" aria-labelledby="titulo-inicio">
+            <div class="container py-lg-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-12 col-lg-7">
+                        <p class="etiqueta mb-3">
+                            PORTAFOLIO PERSONAL / 2026
+                        </p>
 
-                <h1>Hola, soy <span>Jael Vergara Pineda.</span></h1>
+                        <h1 id="titulo-inicio" class="titulo-inicio mb-4">
+                            Hola, soy
+                            <span class="texto-azul">
+                                Jael Vergara Pineda.
+                            </span>
+                        </h1>
 
-                <p>
-                    Estudiante de Ingeniería en Sistemas en la Universidad
-                    Tecnológica de León. En este sitio comparto proyectos y
-                    evidencias de lo que he aprendido durante mi formación.
-                </p>
+                        <p class="lead mb-4">
+                            Estudiante de Ingeniería en Sistemas en la
+                            Universidad Tecnológica de León. En este
+                            portafolio comparto mis proyectos de programación
+                            y evidencias de lo que he aprendido durante
+                            mi formación.
+                        </p>
 
-                <a class="boton" href="#proyectos">Ver mis proyectos ↗</a>
-            </div>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a class="btn btn-primary btn-lg"
+                               href="#proyectos">
+                                Ver mis proyectos
+                            </a>
 
-            <div class="cuadro-inicio" role="img" aria-label="Iniciales JV">
-                JV
+                            <a class="btn btn-outline-primary btn-lg"
+                               href="#contacto">
+                                Contactarme
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                        <div
+                            class="cuadro-inicio rounded-4 shadow d-flex
+                                   align-items-center justify-content-center"
+                            role="img"
+                            aria-label="Iniciales JV de Jael Vergara">
+                            JV
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- SOBRE MÍ -->
-        <section id="sobre-mi" class="oscuro">
-            <div class="contenedor dos-columnas">
-                <div>
-                    <div class="etiqueta">01 / PERFIL PERSONAL</div>
-                    <h2>Sobre mí</h2>
-                </div>
+        <!-- SEO: desarrollo web, Java, Kotlin, MySQL -->
+        <section id="sobre-mi"
+                 class="seccion-oscura py-5"
+                 aria-labelledby="titulo-perfil">
+            <div class="container py-lg-4">
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-lg-4">
+                        <p class="etiqueta mb-2">01 / PERFIL PERSONAL</p>
+                        <h2 id="titulo-perfil" class="display-6">
+                            Sobre mí
+                        </h2>
+                    </div>
 
-                <div>
-                    <p>
-                        Me interesa crear soluciones útiles y fáciles de usar.
-                        Durante mis estudios he trabajado con programación
-                        orientada a objetos, bases de datos, desarrollo móvil
-                        y diseño de interfaces.
-                    </p>
+                    <div class="col-12 col-lg-8">
+                        <p class="mb-4">
+                            Me interesa crear soluciones útiles y fáciles
+                            de usar. Durante mis estudios he trabajado
+                            con programación orientada a objetos,
+                            bases de datos, desarrollo móvil y
+                            diseño de interfaces web.
+                        </p>
 
-                    <div class="habilidades">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Java</span>
-                        <span>Kotlin</span>
-                        <span>MySQL</span>
+                        <h3 class="h5 mb-3">Tecnologías que utilizo</h3>
+
+                        <!-- Badges: componente de Bootstrap -->
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge rounded-pill text-bg-light p-3">
+                                HTML
+                            </span>
+                            <span class="badge rounded-pill text-bg-light p-3">
+                                CSS
+                            </span>
+                            <span class="badge rounded-pill text-bg-light p-3">
+                                Bootstrap
+                            </span>
+                            <span class="badge rounded-pill text-bg-light p-3">
+                                Java
+                            </span>
+                            <span class="badge rounded-pill text-bg-light p-3">
+                                Kotlin
+                            </span>
+                            <span class="badge rounded-pill text-bg-light p-3">
+                                MySQL
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- PROYECTOS -->
-        <section id="proyectos" class="contenedor">
-            <div class="etiqueta">02 / EVIDENCIAS ACADÉMICAS</div>
-            <h2>Mis proyectos</h2>
+        <!-- SEO: proyectos académicos, Java MVC, bases de datos, Kotlin -->
+        <section id="proyectos"
+                 class="py-5"
+                 aria-labelledby="titulo-proyectos">
+            <div class="container py-lg-4">
+                <p class="etiqueta mb-2">02 / EVIDENCIAS ACADÉMICAS</p>
+                <h2 id="titulo-proyectos" class="display-6 mb-3">
+                    Mis proyectos de programación
+                </h2>
 
-            <div class="proyectos">
-                <article class="tarjeta">
-                    <div class="imagen-proyecto java" role="img"
-                         aria-label="Tarjeta ilustrativa del proyecto en Java">
-                        JAVA<br>+ MVC
+                <p class="mb-4">
+                    Algunos proyectos académicos que he realizado
+                    con Java, MySQL y Kotlin.
+                </p>
+
+                <!--
+                    Sistema de columnas Bootstrap:
+                    Celular: una tarjeta por fila.
+                    Tablet: dos tarjetas por fila.
+                    Escritorio: tres tarjetas por fila.
+                -->
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card h-100 shadow-sm overflow-hidden">
+                            <div
+                                class="imagen-proyecto proyecto-java p-4
+                                       d-flex align-items-end justify-content-end
+                                       text-end"
+                                role="img"
+                                aria-label="Ilustración del proyecto Java MVC">
+                                JAVA<br>+ MVC
+                            </div>
+
+                            <div class="card-body p-4">
+                                <span class="badge text-bg-primary mb-3">
+                                    Java
+                                </span>
+
+                                <h3 class="card-title h4">
+                                    Sistema de gimnasio
+                                </h3>
+
+                                <p class="card-text mb-0">
+                                    Proyecto académico organizado en
+                                    modelos, controladores y clases
+                                    de acceso a datos, aplicando
+                                    programación orientada a objetos.
+                                </p>
+                            </div>
+                        </article>
                     </div>
 
-                    <div class="contenido-tarjeta">
-                        <h3>Sistema de gimnasio</h3>
-                        <p>
-                            Proyecto académico organizado en modelos,
-                            controladores y clases de acceso a datos.
-                        </p>
-                    </div>
-                </article>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card h-100 shadow-sm overflow-hidden">
+                            <div
+                                class="imagen-proyecto proyecto-datos p-4
+                                       d-flex align-items-end justify-content-end
+                                       text-end"
+                                role="img"
+                                aria-label="Ilustración del proyecto de MySQL">
+                                DATOS<br>+ SQL
+                            </div>
 
-                <article class="tarjeta">
-                    <div class="imagen-proyecto mysql" role="img"
-                         aria-label="Tarjeta ilustrativa de bases de datos">
-                        DATOS<br>+ SQL
+                            <div class="card-body p-4">
+                                <span class="badge text-bg-dark mb-3">
+                                    MySQL
+                                </span>
+
+                                <h3 class="card-title h4">
+                                    Tienda de tenis
+                                </h3>
+
+                                <p class="card-text mb-0">
+                                    Base de datos con tablas relacionadas
+                                    para productos, clientes, empleados
+                                    y ventas, diseñada para organizar
+                                    la información de una tienda.
+                                </p>
+                            </div>
+                        </article>
                     </div>
 
-                    <div class="contenido-tarjeta">
-                        <h3>Tienda de tenis</h3>
-                        <p>
-                            Base de datos con tablas relacionadas para
-                            productos, clientes, empleados y ventas.
-                        </p>
-                    </div>
-                </article>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card h-100 shadow-sm overflow-hidden">
+                            <div
+                                class="imagen-proyecto proyecto-kotlin p-4
+                                       d-flex align-items-end justify-content-end
+                                       text-end"
+                                role="img"
+                                aria-label="Ilustración de los ejercicios Kotlin">
+                                MÓVIL<br>+ UI
+                            </div>
 
-                <article class="tarjeta">
-                    <div class="imagen-proyecto kotlin" role="img"
-                         aria-label="Tarjeta ilustrativa de Kotlin">
-                        MÓVIL<br>+ UI
-                    </div>
+                            <div class="card-body p-4">
+                                <span class="badge text-bg-secondary mb-3">
+                                    Kotlin
+                                </span>
 
-                    <div class="contenido-tarjeta">
-                        <h3>Ejercicios en Kotlin</h3>
-                        <p>
-                            Programas de práctica para calcular promedios
-                            y convertir grados Celsius a Fahrenheit.
-                        </p>
+                                <h3 class="card-title h4">
+                                    Ejercicios en Kotlin
+                                </h3>
+
+                                <p class="card-text mb-0">
+                                    Programas de práctica para calcular
+                                    promedios y convertir grados Celsius
+                                    a Fahrenheit, utilizando variables,
+                                    operaciones y funciones.
+                                </p>
+                            </div>
+                        </article>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
 
         <!-- TRAYECTORIA -->
-        <section id="trayectoria" class="suave">
-            <div class="contenedor dos-columnas">
-                <div>
-                    <div class="etiqueta">03 / FORMACIÓN</div>
-                    <h2>Mi trayectoria</h2>
-                </div>
+        <!-- SEO: formación académica, UTL, Ingeniería en Sistemas -->
+        <section id="trayectoria"
+                 class="fondo-suave py-5"
+                 aria-labelledby="titulo-trayectoria">
+            <div class="container py-lg-4">
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-lg-4">
+                        <p class="etiqueta mb-2">03 / FORMACIÓN</p>
+                        <h2 id="titulo-trayectoria" class="display-6">
+                            Mi trayectoria
+                        </h2>
+                    </div>
 
-                <div>
-                    <h3>Formación académica</h3>
-                    <p>
-                        Estudio Ingeniería en Sistemas en la Universidad
-                        Tecnológica de León. He realizado actividades de
-                        programación, bases de datos, redes y desarrollo móvil.
-                    </p>
+                    <div class="col-12 col-lg-8">
+                        <!-- List group: componente de Bootstrap -->
+                        <div class="list-group shadow-sm">
+                            <div class="list-group-item p-4">
+                                <h3 class="h5">Formación académica</h3>
+                                <p class="mb-0">
+                                    Estudio Ingeniería en Sistemas en
+                                    la Universidad Tecnológica de León.
+                                    He realizado actividades de
+                                    programación, bases de datos,
+                                    redes y desarrollo móvil.
+                                </p>
+                            </div>
 
-                    <h3>Experiencia práctica</h3>
-                    <p>
-                        He desarrollado proyectos académicos en Java,
-                        Kotlin y MySQL. También he practicado la creación
-                        de interfaces y sitios web.
-                    </p>
+                            <div class="list-group-item p-4">
+                                <h3 class="h5">Experiencia práctica</h3>
+                                <p class="mb-0">
+                                    He desarrollado proyectos académicos
+                                    en Java, Kotlin y MySQL. También
+                                    he practicado la creación de
+                                    interfaces y sitios web.
+                                </p>
+                            </div>
+
+                            <div class="list-group-item p-4">
+                                <h3 class="h5">Desarrollo web</h3>
+                                <p class="mb-0">
+                                    Utilizo HTML, CSS y Bootstrap
+                                    para estructurar páginas y adaptar
+                                    su contenido a teléfonos,
+                                    tablets y computadoras.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- VIDEO Y AUDIO -->
-        <section id="multimedia" class="contenedor">
-            <div class="etiqueta">04 / CONTENIDO MULTIMEDIA</div>
-            <h2>Multimedia</h2>
+        <!-- MULTIMEDIA -->
+        <!-- SEO: video de presentación, portafolio, audio personal -->
+        <section id="multimedia"
+                 class="py-5"
+                 aria-labelledby="titulo-multimedia">
+            <div class="container py-lg-4">
+                <p class="etiqueta mb-2">04 / CONTENIDO MULTIMEDIA</p>
+                <h2 id="titulo-multimedia" class="display-6 mb-4">
+                    Presentación multimedia
+                </h2>
 
-            <div class="multimedia">
-                <div>
-                    <h3>Video de presentación</h3>
+                <div class="row g-4 align-items-start">
+                    <div class="col-12 col-lg-7">
+                        <h3 class="h4 mb-3">Video de presentación</h3>
 
-                    <video controls preload="metadata">
-                        <source src="imagenes/video.mp4" type="video/mp4">
-                        Tu navegador no puede reproducir este video.
-                    </video>
+                        <video
+                            class="w-100 rounded-3"
+                            controls
+                            preload="metadata"
+                            playsinline
+                            aria-label="Video de presentación de mi portafolio">
+                            <source src="imagenes/video.mp4" type="video/mp4">
+                            Tu navegador no puede reproducir este video.
+                            <a href="imagenes/video.mp4">Descargar video</a>
+                        </video>
 
-                    <p>Una presentación breve de mi portafolio.</p>
-                </div>
+                        <p class="mt-3 mb-0">
+                            Una presentación breve de mi portafolio personal.
+                        </p>
+                    </div>
 
-                <div class="caja-audio">
-                    <h3>Audio</h3>
-                    <p>Audio para complementar mi portafolio.</p>
+                    <div class="col-12 col-lg-5">
+                        <div class="card fondo-suave border-0">
+                            <div class="card-body p-4">
+                                <h3 class="h4 mb-3">Audio de presentación</h3>
+                                <p>
+                                    Audio para complementar
+                                    mi portafolio personal.
+                                </p>
 
-                    <audio controls preload="metadata">
-                        <source src="imagenes/audio.mp3" type="audio/mpeg">
-                        Tu navegador no puede reproducir este audio.
-                    </audio>
+                                <audio
+                                    class="w-100"
+                                    controls
+                                    preload="metadata"
+                                    aria-label="Audio de presentación personal">
+                                    <source
+                                        src="imagenes/audio.mp3"
+                                        type="audio/mpeg">
+                                    Tu navegador no puede reproducir este audio.
+                                    <a href="imagenes/audio.mp3">
+                                        Descargar audio
+                                    </a>
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- CONTACTO -->
-        <section id="contacto" class="suave">
-            <div class="contenedor dos-columnas">
-                <div>
-                    <div class="etiqueta">05 / CONTACTO</div>
-                    <h2>Contáctame</h2>
+        <!-- SEO: contacto Jael Vergara Pineda, GitHub, programación -->
+        <section id="contacto"
+                 class="fondo-suave py-5"
+                 aria-labelledby="titulo-contacto">
+            <div class="container py-lg-4">
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-lg-5">
+                        <p class="etiqueta mb-2">05 / CONTACTO</p>
+                        <h2 id="titulo-contacto" class="display-6 mb-3">
+                            Contáctame
+                        </h2>
 
-                    <p>
-                        Si quieres comunicarte conmigo, completa
-                        el siguiente formulario.
-                    </p>
+                        <p>
+                            Si quieres comunicarte conmigo sobre
+                            mis proyectos de programación,
+                            completa el siguiente formulario.
+                        </p>
 
-                    <div class="redes">
-                        <!-- Cambia este enlace por tu perfil real de GitHub. -->
-                        <a href="https://github.com/" target="_blank"
-                           rel="noopener noreferrer">Mi GitHub ↗</a>
+                        <p class="small">
+                            El botón abrirá tu aplicación de correo
+                            con el mensaje preparado para que lo envíes.
+                        </p>
+
+                        <a
+                            class="btn btn-outline-primary mt-2"
+                            href="https://github.com/jaelvergaraa-lang"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Visitar mi GitHub
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-lg-7">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <!-- Formulario con clases de Bootstrap -->
+                                <form id="formulario">
+                                    <div class="mb-3">
+                                        <label
+                                            class="form-label fw-semibold"
+                                            for="nombre">
+                                            Nombre
+                                        </label>
+                                        <input
+                                            class="form-control"
+                                            id="nombre"
+                                            name="nombre"
+                                            type="text"
+                                            autocomplete="name"
+                                            placeholder="Escribe tu nombre"
+                                            maxlength="100"
+                                            required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label
+                                            class="form-label fw-semibold"
+                                            for="correo">
+                                            Correo electrónico
+                                        </label>
+                                        <input
+                                            class="form-control"
+                                            id="correo"
+                                            name="correo"
+                                            type="email"
+                                            autocomplete="email"
+                                            placeholder="ejemplo@correo.com"
+                                            required>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label
+                                            class="form-label fw-semibold"
+                                            for="mensaje">
+                                            Mensaje
+                                        </label>
+                                        <textarea
+                                            class="form-control"
+                                            id="mensaje"
+                                            name="mensaje"
+                                            rows="5"
+                                            placeholder="Escribe tu mensaje"
+                                            maxlength="2000"
+                                            required></textarea>
+                                    </div>
+
+                                    <div class="d-grid d-sm-flex">
+                                        <button
+                                            class="btn btn-primary px-4"
+                                            type="submit">
+                                            Preparar correo
+                                        </button>
+                                    </div>
+
+                                    <p
+                                        id="estadoFormulario"
+                                        class="small mt-3 mb-0"
+                                        role="status"></p>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <form id="formulario">
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" type="text" required
-                           placeholder="Escribe tu nombre">
-
-                    <label for="correo">Correo electrónico</label>
-                    <input id="correo" type="email" required
-                           placeholder="ejemplo@correo.com">
-
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" rows="5" required
-                              placeholder="Escribe tu mensaje"></textarea>
-
-                    <button class="boton" type="submit">
-                        Preparar correo ↗
-                    </button>
-                </form>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 Jael Vergara Pineda · Portafolio personal</p>
+    <footer class="py-4">
+        <div class="container text-center">
+            <p class="mb-2">
+                © 2026 Jael Vergara Pineda · Portafolio personal
+            </p>
+            <a class="link-light" href="#inicio">
+                Volver al inicio
+            </a>
+        </div>
     </footer>
 
+    <!-- JavaScript oficial de Bootstrap: incluye Collapse para el menú -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
     <script>
-        document.getElementById("formulario").addEventListener("submit", function (evento) {
-            evento.preventDefault();
+        // Cerrar el menú móvil al seleccionar una sección.
+        const menuPrincipal = document.getElementById("menuPrincipal");
 
-            const nombre = document.getElementById("nombre").value.trim();
-            const correo = document.getElementById("correo").value.trim();
-            const mensaje = document.getElementById("mensaje").value.trim();
+        document.querySelectorAll("#menuPrincipal .nav-link")
+            .forEach(function (enlace) {
+                enlace.addEventListener("click", function () {
+                    if (
+                        window.bootstrap &&
+                        menuPrincipal.classList.contains("show")
+                    ) {
+                        bootstrap.Collapse.getOrCreateInstance(
+                            menuPrincipal,
+                            { toggle: false }
+                        ).hide();
+                    }
+                });
+            });
 
-            const asunto = encodeURIComponent(
-                "Mensaje del portafolio de " + nombre
-            );
+        // Preparar el mensaje en la aplicación de correo del visitante.
+        document.getElementById("formulario")
+            .addEventListener("submit", function (evento) {
+                evento.preventDefault();
 
-            const contenido = encodeURIComponent(
-                mensaje + "\n\nNombre: " + nombre + "\nCorreo: " + correo
-            );
+                const nombre = document.getElementById("nombre");
+                const correo = document.getElementById("correo");
+                const mensaje = document.getElementById("mensaje");
 
-            const miCorreo = "jaelvergaraa@gmail.com";
+                // Evitar nombres y mensajes que solo contengan espacios.
+                [nombre, mensaje].forEach(function (campo) {
+                    campo.setCustomValidity(
+                        campo.value.trim()
+                            ? ""
+                            : "Completa este campo."
+                    );
+                });
 
-            window.location.href =
-                "mailto:" + miCorreo +
-                "?subject=" + asunto +
-                "&body=" + contenido;
+                if (!this.reportValidity()) {
+                    return;
+                }
+
+                const asunto = encodeURIComponent(
+                    "Mensaje del portafolio de " + nombre.value.trim()
+                );
+
+                const contenido = encodeURIComponent(
+                    mensaje.value.trim() +
+                    "\n\nNombre: " + nombre.value.trim() +
+                    "\nCorreo: " + correo.value.trim()
+                );
+
+                const miCorreo = "jaelvergaraa@gmail.com";
+
+                document.getElementById("estadoFormulario").textContent =
+                    "Se solicitó abrir tu aplicación de correo. " +
+                    "Revisa el mensaje y envíalo desde ahí.";
+
+                window.location.href =
+                    "mailto:" + miCorreo +
+                    "?subject=" + asunto +
+                    "&body=" + contenido;
+            });
+
+        // Actualizar la validación cuando se modifica el contenido.
+        ["nombre", "mensaje"].forEach(function (id) {
+            document.getElementById(id)
+                .addEventListener("input", function () {
+                    this.setCustomValidity("");
+                });
         });
     </script>
 </body>
